@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine's Day ❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #ff4e50, #fc913a);
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+        overflow: hidden;
+        color: white;
+    }
+
+    h1 {
+        margin-top: 100px;
+        font-size: 40px;
+        animation: fadeIn 3s ease-in-out;
+    }
+
+    p {
+        font-size: 22px;
+        margin-top: 20px;
+        animation: fadeIn 5s ease-in-out;
+    }
+
+    .btn {
+        padding: 15px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        margin: 20px;
+        transition: 0.3s;
+    }
+
+    .yes {
+        background-color: #fff;
+        color: #ff4e50;
+    }
+
+    .yes:hover {
+        background-color: #ffe6e6;
+    }
+
+    .no {
+        background-color: black;
+        color: white;
+        position: absolute;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    .heart {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: red;
+        transform: rotate(45deg);
+        animation: float 6s infinite ease-in;
+    }
+
+    .heart::before,
+    .heart::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background: red;
+        border-radius: 50%;
+        position: absolute;
+    }
+
+    .heart::before {
+        top: -10px;
+        left: 0;
+    }
+
+    .heart::after {
+        left: -10px;
+        top: 0;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+        100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Happy Valentine's Day My Love ❤️</h1>
+<p>You are my today, tomorrow and forever 💕</p>
+<p>Will you always be my Valentine? 😘</p>
+
+<button class="btn yes" onclick="loveAlert()">Yes ❤️</button>
+<button class="btn no" id="noBtn">No 😜</button>
+
+<audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+</audio>
+
+<script>
+    function loveAlert() {
+        alert("Yayyy! I love you forever ❤️😘");
+    }
+
+    const noBtn = document.getElementById("noBtn");
+    noBtn.addEventListener("mouseover", function() {
+        noBtn.style.top = Math.random() * window.innerHeight + "px";
+        noBtn.style.left = Math.random() * window.innerWidth + "px";
+    });
+
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+
+    setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
