@@ -10,33 +10,30 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    background: linear-gradient(135deg, #ffd1dc, #ff9aa2);
+    background: linear-gradient(135deg, #ffe0ec, #ffb6c1);
     text-align: center;
     overflow: hidden;
 }
 
 .container {
-    margin-top: 80px;
+    margin-top: 60px;
     position: relative;
     z-index: 2;
 }
 
 h1 {
     font-size: 36px;
-    color: white;
+    color: #fff;
 }
 
 p {
     font-size: 20px;
-    color: white;
-}
-
-.gif {
-    margin-top: 20px;
+    color: #fff;
 }
 
 .gif img {
-    width: 180px;
+    width: 300px;
+    margin-top: 20px;
 }
 
 .buttons {
@@ -65,14 +62,21 @@ button {
     position: absolute;
 }
 
+/* Celebration Text */
 .celebration {
     display: none;
     font-size: 24px;
     color: white;
-    margin-top: 25px;
+    margin-top: 20px;
+    animation: pop 0.6s ease-in-out;
 }
 
-/* Floating hearts */
+@keyframes pop {
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
+}
+
+/* Floating Hearts */
 .heart {
     position: absolute;
     width: 20px;
@@ -106,40 +110,40 @@ button {
 
 <div class="container">
     <h1>Kinjal Doshi ❤️</h1>
-    <p>My cutest Goma Peach forever 🍑🥺</p>
-    <p>Will you always be my Valentine, Mrs. Doshi? 💕</p>
+    <p>My cutest Goma Peach forever 🧸💕</p>
+    <p>Will you always be my Valentine, Mrs. Doshi? 💖</p>
 
     <div class="gif">
-        <!-- Goma Peach Cute GIF -->
-        <img src="https://share.google/67KH52cJNGPZG4Eaj" alt="Cute Love GIF">
+        <!-- Your Shared GIF -->
+        <img src="goma.gif" alt="Goma Peach Love">
     </div>
 
     <div class="buttons">
-        <button class="yes" onclick="sayYes()">Yes 💖</button>
+        <button class="yes" onclick="sayYes()">Yes 💍</button>
         <button class="no" id="noBtn">No 😜</button>
     </div>
 
     <div class="celebration" id="celebration">
-        YAYYYYYY 🥳💞  
-        Harshit loves Kinjal FOREVER ❤️💍  
-        You are my always & forever 💕
+        YAYYYYY 🥳💞  
+        Harshit Loves Kinjal Foreverrrrr ❤️  
+        You are my Always & Forever 💖
     </div>
 </div>
 
 <script>
 function sayYes() {
     document.getElementById("celebration").style.display = "block";
-    alert("I love you Kinjal ❤️🥰");
+    createBurst();
 }
 
-/* Smarter No Button */
+/* Super Interactive No Button */
 const noBtn = document.getElementById("noBtn");
-let noTexts = ["Are you sure? 😢", "Think again 🥺", "Really? 💔", "Don't break my heart 😭", "Last chance 😜"];
+let noTexts = ["Are you sure? 😢", "Think again 🥺", "Really? 💔", "Don't do this 😭", "Last chance 😜"];
 let count = 0;
 
 noBtn.addEventListener("mouseover", function() {
-    noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
-    noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+    noBtn.style.top = Math.random() * (window.innerHeight - 60) + "px";
+    noBtn.style.left = Math.random() * (window.innerWidth - 120) + "px";
     
     if (count < noTexts.length) {
         noBtn.innerText = noTexts[count];
@@ -149,7 +153,7 @@ noBtn.addEventListener("mouseover", function() {
     noBtn.style.transform = "scale(" + (1 - count*0.1) + ")";
 });
 
-/* Floating hearts generator */
+/* Floating hearts */
 function createHeart() {
     const heart = document.createElement("div");
     heart.classList.add("heart");
@@ -162,6 +166,13 @@ function createHeart() {
 }
 
 setInterval(createHeart, 300);
+
+/* Heart Burst on YES */
+function createBurst() {
+    for (let i = 0; i < 30; i++) {
+        createHeart();
+    }
+}
 </script>
 
 </body>
