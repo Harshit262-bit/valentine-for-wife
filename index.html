@@ -13,10 +13,11 @@ body {
     background: linear-gradient(135deg, #ffe0ec, #ffb6c1);
     text-align: center;
     overflow: hidden;
+    transition: background 1s ease;
 }
 
 .container {
-    margin-top: 60px;
+    margin-top: 40px;
     position: relative;
     z-index: 2;
 }
@@ -28,16 +29,13 @@ h1 {
 
 p {
     font-size: 20px;
-    color: #fff;
+    color: white;
 }
 
 .gif img {
-    width: 300px;
+    width: 320px;
     margin-top: 20px;
-}
-
-.buttons {
-    margin-top: 30px;
+    transition: transform 0.5s ease;
 }
 
 button {
@@ -62,21 +60,24 @@ button {
     position: absolute;
 }
 
-/* Celebration Text */
-.celebration {
-    display: none;
-    font-size: 24px;
+/* Typing animation */
+.typing {
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 20px auto;
+    font-size: 22px;
     color: white;
-    margin-top: 20px;
-    animation: pop 0.6s ease-in-out;
+    border-right: 3px solid white;
+    animation: typing 4s steps(40, end) forwards;
 }
 
-@keyframes pop {
-    0% {transform: scale(0);}
-    100% {transform: scale(1);}
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
 }
 
-/* Floating Hearts */
+/* Floating hearts */
 .heart {
     position: absolute;
     width: 20px;
@@ -114,43 +115,46 @@ button {
     <p>Will you always be my Valentine, Mrs. Doshi? 💖</p>
 
     <div class="gif">
-        <!-- Your Shared GIF -->
-        <img src="goma.gif" alt="Goma Peach Love">
+        <img id="mainGif" src="goma1.gif" alt="Love GIF">
     </div>
 
-    <div class="buttons">
-        <button class="yes" onclick="sayYes()">Yes 💍</button>
+    <div>
+        <button class="yes" id="yesBtn" onclick="sayYes()">Yes 💍</button>
         <button class="no" id="noBtn">No 😜</button>
     </div>
 
-    <div class="celebration" id="celebration">
-        YAYYYYY 🥳💞  
-        Harshit Loves Kinjal Foreverrrrr ❤️  
-        You are my Always & Forever 💖
-    </div>
+    <div id="messageArea"></div>
 </div>
 
 <script>
 function sayYes() {
-    document.getElementById("celebration").style.display = "block";
-    createBurst();
+    // Change background
+    document.body.style.background = "linear-gradient(135deg, #ff758c, #ff7eb3)";
+
+    // Change GIF
+    document.getElementById("mainGif").src = "goma2.gif";
+    document.getElementById("mainGif").style.transform = "scale(1.1)";
+
+    // Make YES button bigger
+    document.getElementById("yesBtn").style.transform = "scale(1.3)";
+
+    // Create interactive typing message
+    const message = document.createElement("div");
+    message.classList.add("typing");
+    message.innerHTML = "YAYYYYY 🥳💞 Harshit Loves Kinjal Foreverrrrr ❤️ You are my Always & Forever 💖";
+    document.getElementById("messageArea").appendChild(message);
+
+    // Extra heart burst
+    for (let i = 0; i < 40; i++) {
+        createHeart();
+    }
 }
 
-/* Super Interactive No Button */
+/* Smart No button */
 const noBtn = document.getElementById("noBtn");
-let noTexts = ["Are you sure? 😢", "Think again 🥺", "Really? 💔", "Don't do this 😭", "Last chance 😜"];
-let count = 0;
-
 noBtn.addEventListener("mouseover", function() {
     noBtn.style.top = Math.random() * (window.innerHeight - 60) + "px";
     noBtn.style.left = Math.random() * (window.innerWidth - 120) + "px";
-    
-    if (count < noTexts.length) {
-        noBtn.innerText = noTexts[count];
-        count++;
-    }
-
-    noBtn.style.transform = "scale(" + (1 - count*0.1) + ")";
 });
 
 /* Floating hearts */
@@ -165,14 +169,7 @@ function createHeart() {
     }, 6000);
 }
 
-setInterval(createHeart, 300);
-
-/* Heart Burst on YES */
-function createBurst() {
-    for (let i = 0; i < 30; i++) {
-        createHeart();
-    }
-}
+setInterval(createHeart, 400);
 </script>
 
 </body>
