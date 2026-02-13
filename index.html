@@ -10,31 +10,37 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    background: linear-gradient(135deg, #ffd1dc, #ff9aa2);
     text-align: center;
     overflow: hidden;
 }
 
 .container {
-    margin-top: 120px;
+    margin-top: 80px;
     position: relative;
     z-index: 2;
 }
 
 h1 {
-    font-size: 38px;
-    color: #fff;
-    animation: fadeIn 2s ease-in-out;
+    font-size: 36px;
+    color: white;
 }
 
 p {
-    font-size: 22px;
-    color: #fff;
+    font-size: 20px;
+    color: white;
+}
+
+.gif {
     margin-top: 20px;
 }
 
+.gif img {
+    width: 180px;
+}
+
 .buttons {
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 button {
@@ -49,7 +55,7 @@ button {
 
 .yes {
     background-color: white;
-    color: #ee9ca7;
+    color: #ff4e50;
     font-weight: bold;
 }
 
@@ -59,9 +65,11 @@ button {
     position: absolute;
 }
 
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+.celebration {
+    display: none;
+    font-size: 24px;
+    color: white;
+    margin-top: 25px;
 }
 
 /* Floating hearts */
@@ -84,75 +92,9 @@ button {
     position: absolute;
 }
 
-.heart::before {
-    top: -10px;
-    left: 0;
-}
-
-.heart::after {
-    left: -10px;
-    top: 0;
-}
+.heart::before { top: -10px; left: 0; }
+.heart::after { left: -10px; top: 0; }
 
 @keyframes float {
     0% { transform: translateY(0) rotate(45deg); opacity: 1; }
-    100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
-}
-
-.celebration {
-    display: none;
-    font-size: 26px;
-    color: white;
-    margin-top: 30px;
-    animation: fadeIn 1s ease-in-out;
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-    <h1>Kinjal Doshi ❤️</h1>
-    <p>My cutest Goma Peach forever 🥺🍑</p>
-    <p>Will you always be my Valentine, Mrs. Doshi? 💕</p>
-
-    <div class="buttons">
-        <button class="yes" onclick="sayYes()">Yes 💖</button>
-        <button class="no" id="noBtn">No 😜</button>
-    </div>
-
-    <div class="celebration" id="celebration">
-        Yayyyyy!!! 🥳💞  
-        Harshit loves Kinjal foreverrrrrrr ❤️
-    </div>
-</div>
-
-<script>
-function sayYes() {
-    document.getElementById("celebration").style.display = "block";
-}
-
-const noBtn = document.getElementById("noBtn");
-
-noBtn.addEventListener("mouseover", function() {
-    noBtn.style.top = Math.random() * window.innerHeight + "px";
-    noBtn.style.left = Math.random() * window.innerWidth + "px";
-});
-
-/* Floating hearts generator */
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.style.left = Math.random() * window.innerWidth + "px";
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 6000);
-}
-
-setInterval(createHeart, 300);
-</script>
-
-</body>
-</html>
+    100% { transform: translat
