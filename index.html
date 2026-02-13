@@ -3,155 +3,133 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Kinjal ❤️</title>
+<title>Happy Valentine's Day ❤️</title>
 
 <style>
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-    text-align: center;
-    overflow: hidden;
-}
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #ff4e50, #fc913a);
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+        overflow: hidden;
+        color: white;
+    }
 
-.container {
-    margin-top: 120px;
-    position: relative;
-    z-index: 2;
-}
+    h1 {
+        margin-top: 100px;
+        font-size: 40px;
+        animation: fadeIn 3s ease-in-out;
+    }
 
-h1 {
-    font-size: 38px;
-    color: #fff;
-    animation: fadeIn 2s ease-in-out;
-}
+    p {
+        font-size: 22px;
+        margin-top: 20px;
+        animation: fadeIn 5s ease-in-out;
+    }
 
-p {
-    font-size: 22px;
-    color: #fff;
-    margin-top: 20px;
-}
+    .btn {
+        padding: 15px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        margin: 20px;
+        transition: 0.3s;
+    }
 
-.buttons {
-    margin-top: 40px;
-}
+    .yes {
+        background-color: #fff;
+        color: #ff4e50;
+    }
 
-button {
-    padding: 15px 30px;
-    font-size: 18px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    margin: 15px;
-    transition: 0.3s;
-}
+    .yes:hover {
+        background-color: #ffe6e6;
+    }
 
-.yes {
-    background-color: white;
-    color: #ee9ca7;
-    font-weight: bold;
-}
+    .no {
+        background-color: black;
+        color: white;
+        position: absolute;
+    }
 
-.no {
-    background-color: #ff4e50;
-    color: white;
-    position: absolute;
-}
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
 
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
+    .heart {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: red;
+        transform: rotate(45deg);
+        animation: float 6s infinite ease-in;
+    }
 
-/* Floating hearts */
-.heart {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: #ff4e50;
-    transform: rotate(45deg);
-    animation: float 6s linear infinite;
-}
+    .heart::before,
+    .heart::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background: red;
+        border-radius: 50%;
+        position: absolute;
+    }
 
-.heart::before,
-.heart::after {
-    content: "";
-    width: 20px;
-    height: 20px;
-    background: #ff4e50;
-    border-radius: 50%;
-    position: absolute;
-}
+    .heart::before {
+        top: -10px;
+        left: 0;
+    }
 
-.heart::before {
-    top: -10px;
-    left: 0;
-}
+    .heart::after {
+        left: -10px;
+        top: 0;
+    }
 
-.heart::after {
-    left: -10px;
-    top: 0;
-}
-
-@keyframes float {
-    0% { transform: translateY(0) rotate(45deg); opacity: 1; }
-    100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
-}
-
-.celebration {
-    display: none;
-    font-size: 26px;
-    color: white;
-    margin-top: 30px;
-    animation: fadeIn 1s ease-in-out;
-}
+    @keyframes float {
+        0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+        100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
+    }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>Kinjal Doshi ❤️</h1>
-    <p>My cutest Goma Peach forever 🥺🍑</p>
-    <p>Will you always be my Valentine, Mrs. Doshi? 💕</p>
+<h1>Happy Valentine's Day My Love ❤️</h1>
+<p>You are my today, tomorrow and forever 💕</p>
+<p>Will you always be my Valentine? 😘</p>
 
-    <div class="buttons">
-        <button class="yes" onclick="sayYes()">Yes 💖</button>
-        <button class="no" id="noBtn">No 😜</button>
-    </div>
+<button class="btn yes" onclick="loveAlert()">Yes ❤️</button>
+<button class="btn no" id="noBtn">No 😜</button>
 
-    <div class="celebration" id="celebration">
-        Yayyyyy!!! 🥳💞  
-        Harshit loves Kinjal foreverrrrrrr ❤️
-    </div>
-</div>
+<audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+</audio>
 
 <script>
-function sayYes() {
-    document.getElementById("celebration").style.display = "block";
-}
+    function loveAlert() {
+        alert("Yayyy! I love you forever ❤️😘");
+    }
 
-const noBtn = document.getElementById("noBtn");
+    const noBtn = document.getElementById("noBtn");
+    noBtn.addEventListener("mouseover", function() {
+        noBtn.style.top = Math.random() * window.innerHeight + "px";
+        noBtn.style.left = Math.random() * window.innerWidth + "px";
+    });
 
-noBtn.addEventListener("mouseover", function() {
-    noBtn.style.top = Math.random() * window.innerHeight + "px";
-    noBtn.style.left = Math.random() * window.innerWidth + "px";
-});
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        document.body.appendChild(heart);
 
-/* Floating hearts generator */
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.style.left = Math.random() * window.innerWidth + "px";
-    document.body.appendChild(heart);
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
 
-    setTimeout(() => {
-        heart.remove();
-    }, 6000);
-}
-
-setInterval(createHeart, 300);
+    setInterval(createHeart, 300);
 </script>
 
 </body>
