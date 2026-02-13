@@ -1,3 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Kinjal ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(135deg, #ffe0ec, #ffb6c1);
+    text-align: center;
+    overflow: hidden;
+    transition: background 1s ease;
+}
+
+.container {
+    margin-top: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 36px;
+    color: #fff;
+}
+
+p {
+    font-size: 20px;
+    color: white;
+}
+
+.gif img {
+    width: 320px;
+    margin-top: 20px;
+    transition: transform 0.5s ease;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 15px;
+    transition: 0.3s;
+}
+
+.yes {
+    background-color: white;
+    color: #ff4e50;
+    font-weight: bold;
+}
+
+.no {
+    background-color: #ff4e50;
+    color: white;
+    position: absolute;
+}
+
+/* Typing animation */
+.typing {
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 20px auto;
+    font-size: 22px;
+    color: white;
+    border-right: 3px solid white;
+    animation: typing 4s steps(40, end) forwards;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff4e50;
+    transform: rotate(45deg);
+    animation: float 6s linear infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: #ff4e50;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before { top: -10px; left: 0; }
+.heart::after { left: -10px; top: 0; }
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+    100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Kinjal Doshi ❤️</h1>
+    <p>My cutest Goma Peach forever 🧸💕</p>
+    <p>Will you always be my Valentine, Mrs. Doshi? 💖</p>
+
+    <div class="gif">
+        <img id="mainGif" src="goma1.gif" alt="Love GIF">
+    </div>
+
+    <div>
+        <button class="yes" id="yesBtn" onclick="sayYes()">Yes 💍</button>
+        <button class="no" id="noBtn">No 😜</button>
+    </div>
+
+    <div id="messageArea"></div>
+</div>
+
 <script>
 let noBtn = document.getElementById("noBtn");
 let yesBtn = document.getElementById("yesBtn");
@@ -77,3 +205,6 @@ function createHeart() {
 
 setInterval(createHeart, 400);
 </script>
+
+</body>
+</html>
