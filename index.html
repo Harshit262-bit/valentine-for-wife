@@ -97,4 +97,72 @@ button {
 
 @keyframes float {
     0% { transform: translateY(0) rotate(45deg); opacity: 1; }
-    100% { transform: translat
+    100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Kinjal Doshi ❤️</h1>
+    <p>My cutest Goma Peach forever 🍑🥺</p>
+    <p>Will you always be my Valentine, Mrs. Doshi? 💕</p>
+
+    <div class="gif">
+        <!-- Goma Peach Cute GIF -->
+        <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" alt="Cute Love GIF">
+    </div>
+
+    <div class="buttons">
+        <button class="yes" onclick="sayYes()">Yes 💖</button>
+        <button class="no" id="noBtn">No 😜</button>
+    </div>
+
+    <div class="celebration" id="celebration">
+        YAYYYYYY 🥳💞  
+        Harshit loves Kinjal FOREVER ❤️💍  
+        You are my always & forever 💕
+    </div>
+</div>
+
+<script>
+function sayYes() {
+    document.getElementById("celebration").style.display = "block";
+    alert("I love you Kinjal ❤️🥰");
+}
+
+/* Smarter No Button */
+const noBtn = document.getElementById("noBtn");
+let noTexts = ["Are you sure? 😢", "Think again 🥺", "Really? 💔", "Don't break my heart 😭", "Last chance 😜"];
+let count = 0;
+
+noBtn.addEventListener("mouseover", function() {
+    noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+    noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+    
+    if (count < noTexts.length) {
+        noBtn.innerText = noTexts[count];
+        count++;
+    }
+
+    noBtn.style.transform = "scale(" + (1 - count*0.1) + ")";
+});
+
+/* Floating hearts generator */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
